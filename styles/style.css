@@ -1,14 +1,12 @@
 body {
-    background: #3c3c3c;
+    background: #181818;
     color: #fff;
 }
 
 
 .d3-line-bar {
-    width: 800px;
-    height: 600px;
-    // background: #000;
-    color: gray;
+  width: 100%;
+  height: 500px;
 }
 
 .d3-line-bar svg {
@@ -28,8 +26,6 @@ body {
     align-items: flex-end;
     width: 100%;
     height: 100%;
-    // transform: rotate(90deg);
-    // transform-origin: 0 100%;
 }
 
 
