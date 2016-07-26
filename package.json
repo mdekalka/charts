@@ -1,0 +1,7 @@
+{
+  "name": "sdf",
+  "version": "0.0.1",
+  "devDependencies": {
+    "node-static": "^0.7.7"
+  }
+}
