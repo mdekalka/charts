@@ -52,7 +52,11 @@ angular.module('application')
 
               x0.domain(data.map(function(d) { return d.State; }));
               x1.domain(ageNames).rangeRoundBands([0, x0.rangeBand()]);
-              y.domain([0, d3.max(data, function(d) { return d3.max(d.ages, function(d) { return d.value; }); })]);
+              y.domain([0, d3.max(data, function(d) {
+                return d3.max(d.ages, function(d) {
+                    return d.value;
+                });
+              })]);
 
               new_svg.append("g")
                   .attr("class", "x axis")
@@ -62,6 +66,7 @@ angular.module('application')
               new_svg.append("g")
                   .attr("class", "y axis")
                   .call(yAxis)
+                // Draw "population" text with rotate transform
                 .append("text")
                   .attr("transform", "rotate(-90)")
                   .attr("y", 6)

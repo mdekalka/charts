@@ -9,22 +9,33 @@
 <body ng-app="application">
 
 <div ng-controller="appCtrl">
+    <span class="country-checkbox" ng-repeat="item in model track by item.id">
+        <label>
+            <input ng-model="item.selected" type="checkbox">{{item.country}}
+        </label>
+    </span>
+    <!-- Charts preview -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6">
+          <!-- <bar-vert-d3></bar-vert-d3> -->
+          <bar-vert-eikon-d3 model="model"></bar-vert-eikon-d3>
+        </div>
+        <div class="col-lg-6">
+          <!-- <bar-hor-d3></bar-hor-d3> -->
+          <line-eikon-d3 model="model"></line-eikon-d3>
+        </div>
+      </div>
 
-<h4>Charts overview</h4>
+      <div class="row">
+          <div class="col-lg-6">
+              <!-- <bar-vert-eikon-d3></bar-vert-eikon-d3> -->
+          </div>
+          <div class="col-lg-6">
 
-
-
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-6">
-      <bar-vert-d3></bar-vert-d3>
+          </div>
+      </div>
     </div>
-    <div class="col-lg-6">
-      <bar-hor-d3></bar-hor-d3>
-    </div>
-  </div>
-</div>
 
 </div>
 
@@ -37,11 +48,16 @@
 <script src="js/jquery.js"></script>
 <script src="js/angular.js"></script>
 <script src="js/d3.js"></script>
+<script src="js/d3-tip.js"></script>
 
 <script src="js/main.js"></script>
 
 <script src="js/barVertD3.js"></script>
 <script src="js/barHorD3.js"></script>
+
+<script src="js/barVertEikonD3.js"></script>
+<script src="js/lineEikonD3.js"></script>
+<script src="js/test.js"></script>
 
 </body>
 </html>
