@@ -87,8 +87,8 @@ body {
 }
 
 
-.line {
-  fill: none;
-  stroke: #4682b4;
-  stroke-width: 1.5px;
+path {
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
 }

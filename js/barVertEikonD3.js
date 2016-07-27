@@ -29,24 +29,23 @@ angular.module('application')
             width = svg_width - margin.left - margin.right,
             height = svg_height - margin.top - margin.bottom;
 
+            var x = d3.scale.ordinal()
+                .rangeRoundBands([0, width], .8);
+
+            var y = d3.scale.linear()
+                .range([height, 0]);
+
+            var xAxis = d3.svg.axis()
+                .scale(x)
+                .orient("bottom");
+
+            var yAxis = d3.svg.axis()
+                .scale(y)
+                .orient("left")
+                .tickFormat(d3.format(".2s"))
+                .ticks(5)
+
                 function updateRender() {
-                    var x = d3.scale.ordinal()
-                        .rangeRoundBands([0, width], .8);
-
-                    var y = d3.scale.linear()
-                        .range([height, 0]);
-
-                    var xAxis = d3.svg.axis()
-                        .scale(x)
-                        .orient("bottom");
-
-                    var yAxis = d3.svg.axis()
-                        .scale(y)
-                        .orient("left")
-                        .tickFormat(d3.format(".2s"))
-                        .ticks(5)
-
-
                     var new_svg = svg
                         .style('background-color', '#1F1F21')
                         .append("g")
