@@ -20,6 +20,7 @@ angular.module('application')
                     return item.country
                 });
 
+
                 svg.selectAll('*').remove();
                 updateRender();
             }, true);
@@ -70,30 +71,9 @@ angular.module('application')
             // d3.csv("data.csv", function(error, data) {
             var data1 = dataSvc.getData();
 
-            // var data1 = [
-            //     {year: parseTime('2004-01-01'), Iran: 150000, Iraq: 200000, Oman: 340000},
-            //     {year: parseTime('2005-01-01'), Iran: 320000, Iraq: 130000, Oman: 123400},
-            //     {year: parseTime('2006-01-01'), Iran: 135923, Iraq: 652000, Oman: 532100},
-            //     {year: parseTime('2007-01-01'), Iran: 540213, Iraq: 140000, Oman: 421000},
-            //     {year: parseTime('2008-01-01'), Iran: 754000, Iraq: 540000, Oman: 159000}
-            // ];
-            data1.colors = {
-                "Jordan": '#FF9736',
-                "Lebanon": '#1abc9c',
-                "Oman": '#AF13F1',
-                "Iran": '#7CE343',
-                'Saudi Arabia': '#397EBD',
-                'UAE': '#F94D18',
-                'Tunisia': '#FFE336',
-                'Kuwait': '#34495e',
-                'Iraq': '#ecf0f1',
-                'Bahrain': '#27ae60'
-            }
-            // if (error) throw error;
-
               // var ageNames = d3.keys(data[0]).filter(function(key) { return key !== "State"; });
 
-            var countryNames = d3.keys(data1[0]).filter(function(item) {
+            var countryNames = (countries).filter(function(item) {
                 return item !== "date";
             });
 
@@ -160,13 +140,13 @@ angular.module('application')
                 .enter().append("g")
                   .attr("class", "state")
                   .attr("transform", function(d) {
-                    return "translate(" + x0(d.date) + ",0)";
+                    return "translate(" + x0(d.date)  +",0)";
                      });
 
               state.selectAll("rect")
                   .data(function(d) { return d.countries; })
                 .enter().append("rect")
-                  .attr("width", x1.rangeBand())
+                  .attr("width", x1.rangeBand() / 1.5)
                   .attr("x", function(d) { return x1(d.name); })
                   .attr("y", function(d) { return y(d.value); })
                   .attr("height", function(d) { return height - y(d.value); })
