@@ -9,32 +9,46 @@
 <body ng-app="application">
 
 <div ng-controller="appCtrl">
-    <span class="country-checkbox" ng-repeat="item in model track by item.id">
-        <label>
-            <input ng-model="item.selected" type="checkbox">{{item.country}}
-        </label>
-    </span>
     <!-- Charts preview -->
     <div class="container-fluid">
+        <h2 class="text-center">Bar/line chart example (D3)</h2>
+        <h4>You can select/unselect any countries you want:</h4>
+        <button ng-click="select(true);">select all</button>
+        <button ng-click="select(false);">deselect all</button>
+        <span class="country-checkbox" ng-repeat="item in model track by item.id">
+            <label>
+                <input ng-model="item.selected" type="checkbox">{{item.country}}
+            </label>
+        </span>
       <div class="row">
         <div class="col-lg-6">
-          <!-- <bar-vert-d3></bar-vert-d3> -->
-          <bar-vert-eikon-d3 model="model"></bar-vert-eikon-d3>
+
+          <!-- <bar-vert-eikon-d3 model="model"></bar-vert-eikon-d3> -->
         </div>
         <div class="col-lg-6">
-          <!-- <bar-hor-d3></bar-hor-d3> -->
+
           <line-eikon-d3 model="model"></line-eikon-d3>
         </div>
       </div>
 
       <div class="row">
           <div class="col-lg-6">
-              <!-- <bar-vert-eikon-d3></bar-vert-eikon-d3> -->
+          <!-- vertical example -->
+          <!-- <bar-vert-d3></bar-vert-d3> -->
+          <multiple-bar-eikon-d3 model="model"></multiple-bar-eikon-d3>
           </div>
           <div class="col-lg-6">
-
+          <!-- horizontal example -->
+          <!-- <bar-hor-d3></bar-hor-d3> -->
           </div>
       </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6"></div>
+            <div class="col-lg-6"></div>
+        </div>
     </div>
 
 </div>
@@ -51,12 +65,14 @@
 <script src="js/d3-tip.js"></script>
 
 <script src="js/main.js"></script>
+<script src="js/dataSvc.js"></script>
 
 <script src="js/barVertD3.js"></script>
 <script src="js/barHorD3.js"></script>
 
 <script src="js/barVertEikonD3.js"></script>
 <script src="js/lineEikonD3.js"></script>
+<script src=js/multipleBarEikonD3.js></script>
 <script src="js/test.js"></script>
 
 </body>

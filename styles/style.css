@@ -88,7 +88,17 @@ body {
 
 
 path {
-    stroke: steelblue;
+    // stroke: steelblue;
     stroke-width: 2;
     fill: none;
+}
+line {
+    fill: none;
+    // stroke: #656566;
+    shape-rendering: crispEdges;
+}
+
+button {
+    background: #000;
+    color: darkwhite;
 }

@@ -16,6 +16,12 @@
                 {id: '9', 'country': 'Iraq',        'sales':  954000, color: '#ecf0f1', selected: false},
                 {id: '10', 'country': 'Bahrain',     'sales': 436500,  color: '#27ae60', selected: false}
             ];
+
+            $scope.select = function(all) {
+                $scope.model.forEach(function(item) {
+                    item.selected = all;
+                });
+            }
         })
 
 
