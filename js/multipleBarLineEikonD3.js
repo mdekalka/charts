@@ -155,16 +155,18 @@ angular.module('application')
                     return "translate(" + x0(d.date)  +",0)";
                 });
 
+                var groupSpacing = 6;
+
             state.selectAll("rect")
                 .data(function(d) {
                     return d.countries;
                     })
                 .enter().append("rect")
                 // .attr("width", x1.rangeBand() / 1.5)
-                .attr("width", x1.rangeBand() - 6/2)
+                .attr('width', x1.rangeBand())
                 .attr("x", function(d) {
                     return x1(d.name);
-                     })
+                })
                 .attr("y", function(d) {
                     return y(d.value);
                      })
