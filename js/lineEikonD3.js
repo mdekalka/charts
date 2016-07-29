@@ -18,7 +18,6 @@ angular.module('application')
             var svg_height = svg.node().getBoundingClientRect().height;
             var svg_width = Math.round(svg.node().getBoundingClientRect().width);
 
-
             scope.$watch('model', function(oldVal, newVal) {
                 countries = scope.model.filter(function(item) {
                     return item.selected;
@@ -51,13 +50,16 @@ angular.module('application')
                     .style('fill', '#262628')
 
             var x = d3.time.scale().range([0, width]),
-                y = d3.scale.linear().range([height, 0]),
-                z = d3.scale.ordinal(d3.schemeCategory10);
+                y = d3.scale.linear().range([height, 0])
 
             var line = d3.svg.line()
                 .interpolate('linear')
-                .x(function(d) { return x(d.date); })
-                .y(function(d) { return y(d.temperature); });
+                .x(function(d) {
+                    return x(d.date);
+                     })
+                .y(function(d) {
+                    return y(d.temperature);
+                     });
 
 
             data.columns = []
@@ -76,18 +78,18 @@ angular.module('application')
                 }
             });
 
+
               x.domain(d3.extent(data, function(d) {
                 return d.date;
                  }));
 
+              var minValue = 0;
+              var maxValue = 100;
               y.domain([
                 // d3.min(cities, function(c) { return d3.min(c.values, function(d) { return d.temperature; }); }),
                 // d3.max(cities, function(c) { return d3.max(c.values, function(d) { return d.temperature; }); })
-                d3.min(cities, function(c) { return 0 }), // min value
-                d3.max(cities, function(c) { return 100}) //max value
+                minValue, maxValue
               ]);
-
-              z.domain(cities.map(function(c) { return c.id; }));
 
             var xTicks = new_svg.append("g")
                   .attr("class", "axis axis--x")
@@ -109,6 +111,8 @@ angular.module('application')
 
             xTicks.selectAll('line')
                 .attr('y2', -height)
+
+
                 // .append("text")
                 //   .attr("transform", "rotate(-90)")
                 //   .attr("y", 6)
@@ -124,7 +128,9 @@ angular.module('application')
             // Draw lines
             city.append("path")
                   .attr("class", "line")
-                  .attr("d", function(d) { return line(d.values); })
+                  .attr("d", function(d) {
+                    return line(d.values);
+                     })
                   .style("stroke", function(d) {
                     return d.color
                      });

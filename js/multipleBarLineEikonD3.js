@@ -1,5 +1,5 @@
 angular.module('application')
-.directive('test', function(dataSvc) {
+.directive('multipleBarLineEikonD3', function(dataSvc) {
     return {
         scope: {
             model: '<'
@@ -9,6 +9,8 @@ angular.module('application')
             var $bar = element.find('.d3-line-bar');
             var bar = d3.select($bar[0]);
             var svg = bar.append('svg');
+
+            var groupSpacing = 6;
 
             var svg_height = svg.node().getBoundingClientRect().height;
             var svg_width = svg.node().getBoundingClientRect().width;
@@ -30,7 +32,7 @@ angular.module('application')
                 height = svg_height - margin.top - margin.bottom;
 
             var x0 = d3.scale.ordinal()
-                .rangeRoundBands([0, width], .1, .2);
+                .rangeRoundBands([0, width], .1);
 
             var x1 = d3.scale.ordinal();
 
@@ -40,6 +42,16 @@ angular.module('application')
             var y1 = d3.scale.linear()
                 .domain([0, 4000])
                 .range([height, 0]);
+
+
+            var line = d3.svg.line()
+                .interpolate('linear')
+                .x(function(d) {
+                    return x0(d.date);
+                     })
+                .y(function(d) {
+                    return y1(d.value);
+                     });
 
             var parseTime = d3.time.format("%Y-%m-%d").parse;
             formatDate = d3.time.format("%Y")
@@ -105,7 +117,6 @@ angular.module('application')
                 }
             });
 
-
             x0.domain(data1.map(function(d) {
                 return d.date;
             }));
@@ -114,16 +125,6 @@ angular.module('application')
             var maxValue = 100;
 
             y.domain([0, maxValue]);
-
-            var line = d3.svg.line()
-                .interpolate('linear')
-                .x(function(d) {
-                    return x0(d.date);
-                     })
-                .y(function(d) {
-                    return y1(d.value);
-                     });
-
 
             new_svg.append("g")
                 .attr("class", "x axis")
@@ -159,7 +160,8 @@ angular.module('application')
                     return d.countries;
                     })
                 .enter().append("rect")
-                .attr("width", x1.rangeBand() / 1.5)
+                // .attr("width", x1.rangeBand() / 1.5)
+                .attr("width", x1.rangeBand() - 6/2)
                 .attr("x", function(d) {
                     return x1(d.name);
                      })
@@ -174,16 +176,19 @@ angular.module('application')
             var city = new_svg.selectAll(".city")
                 .data(cities)
                 .enter().append("g")
-                  .attr("class", "city");
+                  .attr("class", "city")
+                  .attr("transform", function(d) {
+                    return "translate(" + x0.rangeBand()/2  +",0)";
+                    });
             // Draw lines
             city.append("path")
                   .attr("class", "line")
                   .attr("d", function(d) {
                     return line(d.values);
-                     })
+                   })
                   .style("stroke", function(d) {
                     return d.color
-                     });
+                    });
 
             }
         }

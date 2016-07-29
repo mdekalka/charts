@@ -102,3 +102,21 @@ button {
     background: #000;
     color: darkwhite;
 }
+
+
+
+.piu .bar rect {
+    fill: steelblue;
+    shape-rendering: crispEdges;
+  }
+.piu .axis path,
+.piu .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+  }
+.piu .line {
+    fill: none;
+    stroke: purple;
+    stroke-width: 1.5px;
+  }

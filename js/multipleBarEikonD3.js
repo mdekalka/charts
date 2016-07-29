@@ -20,7 +20,7 @@ angular.module('application')
                     return item.country
                 });
 
-
+                // Clear the svg canvas, before re-render new data
                 svg.selectAll('*').remove();
                 updateRender();
             }, true);
