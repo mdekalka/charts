@@ -78,10 +78,9 @@ angular.module('application')
                 }
             });
 
-
-              x.domain(d3.extent(data, function(d) {
+            x.domain(d3.extent(data, function(d) {
                 return d.date;
-                 }));
+            }));
 
               var minValue = 0;
               var maxValue = 100;

@@ -1,11 +1,15 @@
 body {
     background: #121212;
     color: #fff;
+    padding-top: 140px;
 }
 .row {
     margin-bottom: 25px;
 }
 
+.title {
+    color: rgb(255, 153, 51);;
+}
 
 .d3-line-bar {
   width: 100%;
@@ -24,8 +28,12 @@ body {
     display: inline-block
 }
 
-.d3-line-bar {
-    float: left;
+.hs-line-bar {
+    height: 500px;
+}
+
+.hs-container {
+    height: 100%;
 }
 
 .country-checkbox {
@@ -35,6 +43,7 @@ body {
 
 .preview-selector {
     position: fixed;
+    top: 0;
     width: 100%;
     z-index: 100;
     background: rgba(0,0,0, .7);
@@ -61,6 +70,22 @@ body {
 }
 .line-bar .x.axis line {
   display: none;
+}
+
+.highcharts-tooltip > span {
+    background-color: rgb(60, 60, 66);
+    box-shadow: rgba(0, 0, 0, 0.6) 0px 3px 10px 0px;
+    padding: 5px;
+    color: rgb(194, 194, 194) !important;
+}
+
+.highcharts-tooltip > path {
+    fill: rgb(60, 60, 66);
+}
+
+.highcharts-grid path,
+.highcharts-axis path {
+    stroke-width: 1;
 }
 
 .line-bar-tip {
@@ -110,3 +135,5 @@ button {
     background: #000;
     color: darkwhite;
 }
+
+

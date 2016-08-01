@@ -11,7 +11,7 @@
 <div ng-controller="appCtrl">
     <!-- Charts preview -->
     <div class="preview-selector">
-        <h2 class="text-center">Bar/line chart example (D3)</h2>
+        <h2 class="text-center title">D3.js vs Highcharts.js overview</h2>
         <h4>You can select/unselect any countries you want:</h4>
         <button ng-click="select(true);">select all</button>
         <button ng-click="select(false);">deselect all</button>
@@ -25,6 +25,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-6">
+            <h2 class="title">D3.js:</h2>
             <div class="control">
               <h4>Single bar chart:</h4>
               <bar-vert-eikon-d3 model="model"></bar-vert-eikon-d3>
@@ -39,15 +40,34 @@
               <h4>Multiple bar chart:</h4>
               <multiple-bar-eikon-d3 model="model"></multiple-bar-eikon-d3>
             </div>
+
             <div class="control">
                 <h4>Multiple bar + line chart:</h4>
                 <multiple-bar-line-eikon-d3 model="model"></multiple-bar-line-eikon-d3>
             </div>
+        </div>
 
+        <div class="col-lg-6">
+            <h2 class="title">Highcharts.js:</h2>
             <div class="control">
-                <!-- <bar-vert-d3></bar-vert-d3> -->
+                <h4>Single bar chart</h4>
+                <bar-vert-eikon-hs model="model"></bar-vert-eikon-hs>
             </div>
 
+            <div class="controls">
+                <h4>Line chart:</h4>
+                <line-eikon-hc model="model"></line-eikon-hc>
+            </div>
+
+            <div class="controls">
+                <h4>Multiple bar chart:</h4>
+                <multiple-bar-eikon-hc model="model"></multiple-bar-eikon-hc>
+            </div>
+
+            <div class="controls">
+                <h4>Multiple bar + line chart:</h4>
+                <multiple-bar-line-eikon-hc model="model"></multiple-bar-line-eikon-hc>
+            </div>
         </div>
       </div>
     </div>
@@ -68,14 +88,21 @@
 <script src="js/main.js"></script>
 <script src="js/dataSvc.js"></script>
 
+<!-- D3 common examples -->
 <script src="js/barVertD3.js"></script>
 <script src="js/barHorD3.js"></script>
-
+<!-- D3 EIKON examples -->
 <script src="js/barVertEikonD3.js"></script>
 <script src="js/lineEikonD3.js"></script>
-<script src=js/multipleBarEikonD3.js></script>
+<script src="js/multipleBarEikonD3.js"></script>
 <script src="js/multipleBarLineEikonD3.js"></script>
 <script src="js/test.js"></script>
+
+<!-- HS -->
+<script src="js/barVertEikonHC.js"></script>
+<script src="js/lineEikonHC.js"></script>
+<script src="js/multipleBarEikonHC.js"></script>
+<script src="js/multipleBarLineEikonHC.js"></script>
 
 </body>
 </html>
