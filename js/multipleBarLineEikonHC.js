@@ -14,6 +14,8 @@ angular.module('application')
             var chart;
             var dates;
             var values;
+            var lines;
+            var series = [];
 
             var config = {
                 chart: {
@@ -39,26 +41,50 @@ angular.module('application')
                         }
                     },
                 },
-                yAxis: {
+                yAxis: [{
                     gridLineDashStyle: 'solid',
                     gridLineWidth: 1,
                     gridLineColor: '#656566',
+                    endOnTick: false,
+                    alignTicks: false,
                     min: 0,
                     max: 100,
                     tickInterval: 20,
-                    title: {
-                        text: '',
-                        style: {
-                          color: '#656566'
-                         }
-                    },
                     labels: {
                         style: {
                           fontSize: '14px',
                           color: '#656566',
                         }
+                    },
+                    title: {
+                        text: '',
+                        style: {
+                            color: '#656566'
+                        }
                     }
-                },
+                },{
+                    gridLineDashStyle: 'solid',
+                    gridLineWidth: 1,
+                    gridLineColor: '#656566',
+                    endOnTick: false,
+                    alignTicks: false,
+                    min: 0,
+                    max: 4000,
+                    tickInterval: 800,
+                    labels: {
+                        style: {
+                          fontSize: '14px',
+                          color: '#656566',
+                        }
+                    },
+                    title: {
+                        text: '',
+                        style: {
+                            color: '#656566'
+                        }
+                    },
+                    opposite: true
+                }],
                 tooltip: {
                     useHTML: true,
                     borderWidth: 0,
@@ -74,12 +100,12 @@ angular.module('application')
                 },
                 plotOptions: {
                     column: {
-                        pointPadding: .2,
-                        groupPadding: 0.07,
+                        // pointPadding: .02,
+                        groupPadding: 0.06,
                         borderWidth: 0
                     }
                 },
-                series: values
+                series: series
             };
 
             scope.$watch('model', function(oldVal, newVal) {
@@ -90,6 +116,8 @@ angular.module('application')
                 values = data.columns.slice(1).map(function(id) {
                     return {
                       name: id,
+                      type: 'column',
+                      yAxis: 0,
                       color: data.colors[id],
                       data: data.map(function(d) {
                         return d[id];
@@ -97,8 +125,23 @@ angular.module('application')
                     };
                 });
 
+                lines = data.columns.slice(1).map(function(id) {
+                    return {
+                      name: id,
+                      type: 'line',
+                      yAxis: 1,
+                      color: data.colors[id],
+                      data: data.map(function(d) {
+                        return Math.round(d[id] * 100 / 2.3);
+                      })
+                    };
+                });
+
+                series.length = 0;
+                series = values.concat(lines)
+
                 config.xAxis.categories = dates;
-                config.series = values;
+                config.series = series;
 
                 chart = new Highcharts.Chart(config);
             }, true);
