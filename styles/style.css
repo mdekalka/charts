@@ -1,0 +1,139 @@
+body {
+    background: #121212;
+    color: #fff;
+    padding-top: 140px;
+}
+.row {
+    margin-bottom: 25px;
+}
+
+.title {
+    color: rgb(255, 153, 51);;
+}
+
+.d3-line-bar {
+  width: 100%;
+  height: 500px;
+}
+
+.d3-line-bar svg {
+    width: 100%;
+    height: 100%;
+    background: lightgray;
+}
+
+.d3-line-bar .line {
+    background-color: darkgray;
+    width: 20px;
+    display: inline-block
+}
+
+.hs-line-bar {
+    height: 500px;
+}
+
+.hs-container {
+    height: 100%;
+}
+
+.country-checkbox {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.preview-selector {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(0,0,0, .7);
+    padding: 0 15px 25px;
+}
+
+
+// EIKON LINE BARS WITH TIPS
+.line-bar {}
+
+.line-bar .axis {
+  font: 15px sans-serif;
+}
+
+.line-bar .axis path,
+.line-bar .axis line {
+  fill: none;
+  stroke: #656566;
+  shape-rendering: crispEdges;
+}
+
+.line-bar .x.axis path {
+  display: none;
+}
+.line-bar .x.axis line {
+  display: none;
+}
+
+.highcharts-tooltip > span {
+    background-color: rgb(60, 60, 66);
+    box-shadow: rgba(0, 0, 0, 0.6) 0px 3px 10px 0px;
+    padding: 5px;
+    color: rgb(194, 194, 194) !important;
+}
+
+.highcharts-tooltip > path {
+    fill: rgb(60, 60, 66);
+}
+
+.highcharts-grid path,
+.highcharts-axis path {
+    stroke-width: 1;
+}
+
+.line-bar-tip {
+    max-width: 200px;
+    color: rgb(194, 194, 194);
+    background-color: rgb(60, 60, 66);
+    box-shadow: rgba(0, 0, 0, 0.6) 0px 3px 10px 0px;
+    padding: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(0, 0, 0);
+}
+
+/* Creates a small triangle extender for the tooltip */
+.line-bar-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgb(60, 60, 66);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.line-bar-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+
+
+path {
+    // stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+line {
+    fill: none;
+    // stroke: #656566;
+    shape-rendering: crispEdges;
+}
+
+button {
+    background: #000;
+    color: darkwhite;
+}
+
+
