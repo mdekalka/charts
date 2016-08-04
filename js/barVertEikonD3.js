@@ -19,6 +19,7 @@ angular.module('application')
                 data = scope.model.filter(function(value) {
                     return value.selected;
                 });
+
                 svg.selectAll('*').remove();
                 updateRender();
             }, true);

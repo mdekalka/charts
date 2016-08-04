@@ -17,9 +17,30 @@ body {
 }
 
 .d3-line-bar svg {
-    width: 100%;
-    height: 100%;
-    background: lightgray;
+  width: 100%;
+  height: 100%;
+  background: lightgray;
+}
+
+#donutChart {
+  width: 100%;
+  height: 500px;
+}
+
+#donutChart svg {
+  width: 100%;
+  height: 100%;
+  background: lightgray;
+  display: block;
+  margin: 0 auto;
+}
+
+#donutChart svg path {
+    cursor: pointer;
+}
+
+#donutChart svg path  {
+    transition: opacity ease-in .2s;
 }
 
 .d3-line-bar .line {
@@ -88,7 +109,8 @@ body {
     stroke-width: 1;
 }
 
-.line-bar-tip {
+.line-bar-tip,
+.donut-tip {
     max-width: 200px;
     color: rgb(194, 194, 194);
     background-color: rgb(60, 60, 66);
@@ -97,6 +119,13 @@ body {
     border-width: 1px;
     border-style: solid;
     border-color: rgb(0, 0, 0);
+}
+
+.donut-tip .icon {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    vertical-align: middle;
 }
 
 /* Creates a small triangle extender for the tooltip */
@@ -120,7 +149,7 @@ body {
 }
 
 
-path {
+.d3-line-bar path {
     // stroke: steelblue;
     stroke-width: 2;
     fill: none;
@@ -136,4 +165,6 @@ button {
     color: darkwhite;
 }
 
-
+#pieChart path {
+    fill:
+}

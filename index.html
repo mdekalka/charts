@@ -26,6 +26,12 @@
       <div class="row">
         <div class="col-lg-6">
             <h2 class="title">D3.js:</h2>
+
+            <div class="control">
+              <h4>Donut chart:</h4>
+              <donut-eikon-d3 model="model"></donut-eikon-d3>
+            </div>
+
             <div class="control">
               <h4>Single bar chart:</h4>
               <bar-vert-eikon-d3 model="model"></bar-vert-eikon-d3>
@@ -49,6 +55,12 @@
 
         <div class="col-lg-6">
             <h2 class="title">Highcharts.js:</h2>
+
+            <div class="control">
+              <h4>Donut chart:</h4>
+              <donut-d3 model="model"></donut-d3>
+            </div>
+
             <div class="control">
                 <h4>Single bar chart</h4>
                 <bar-vert-eikon-hs model="model"></bar-vert-eikon-hs>
@@ -79,9 +91,9 @@
 
 
 <!-- Thirdparty libraries -->
+<script src="js/d3.js"></script>
 <script src="js/jquery.js"></script>
 <script src="js/angular.js"></script>
-<script src="js/d3.js"></script>
 <script src="js/d3-tip.js"></script>
 <script src="js/highcharts.js"></script>
 
@@ -89,9 +101,11 @@
 <script src="js/dataSvc.js"></script>
 
 <!-- D3 common examples -->
+<script src="js/donutD3.js"></script>
 <script src="js/barVertD3.js"></script>
 <script src="js/barHorD3.js"></script>
 <!-- D3 EIKON examples -->
+<script src="js/donutEikonD3.js"></script>
 <script src="js/barVertEikonD3.js"></script>
 <script src="js/lineEikonD3.js"></script>
 <script src="js/multipleBarEikonD3.js"></script>
